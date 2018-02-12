@@ -15,6 +15,9 @@ public struct Point
 	}
 }
 
+/// <summary>
+/// for test
+/// </summary>
 public class MapView : MonoBehaviour {
 
 	public const int GRASS = 0;
@@ -22,6 +25,9 @@ public class MapView : MonoBehaviour {
 	public const int STARTPOINT = 2;
 	public const int ENDPOINT = 3;
 	public const int PATHNODE = 4;
+	public const int NODESEARCHED = 5;
+	public const int NODESEARCHING = 6;
+
 	public int map_width = 40;
 	public int map_height = 20;
 	public const float tile_width = 0.32f;
@@ -89,7 +95,6 @@ public class MapView : MonoBehaviour {
 			int tile_x = (int)((cameraPos.x + 6.4f)/tile_width);
 			int tile_y = (int)((cameraPos.y + 3.2f)/tile_width);
 
-			// int oldTileValue = tiles[tile_x, tile_y];
 			int newTileValue = 0;
 			switch(selectedTileType)
 			{

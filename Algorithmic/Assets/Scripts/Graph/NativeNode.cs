@@ -5,7 +5,6 @@ public class NativeNode : MonoBehaviour {
 	SpriteRenderer spriteRender;
 	Sprite[] sprites;
 	int current;
-	bool blinking;
 
 	void Start()
 	{
@@ -29,11 +28,11 @@ public class NativeNode : MonoBehaviour {
 
 	public void BlinkOn()
 	{
-		spriteRender.sprite = sprites[5];
+		spriteRender.sprite = sprites[MapView.NODESEARCHED];
 	}
 
 	public void BlinkOff()
 	{
-		spriteRender.sprite = sprites[6];
+		spriteRender.sprite = sprites[MapView.NODESEARCHING];
 	}
 }

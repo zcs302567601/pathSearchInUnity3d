@@ -14,11 +14,12 @@ public class AStarSearch : PathFindSearch
 
     public override bool Find(DirectionGraph graph, Node start, Node end)
     {
-        System.Diagnostics.Stopwatch watch = new System.Diagnostics.Stopwatch();
 		priorityQueue = new FastPriorityQueue<Node>(graph.VerticeCount());
         costForStartToTarget = new Dictionary<Node, int>();
 
+        System.Diagnostics.Stopwatch watch = new System.Diagnostics.Stopwatch();
         watch.Start();
+        
         costForStartToTarget[start] = 0;
         priorityQueue.Enqueue(start, 0);
         while(priorityQueue.Count > 0)

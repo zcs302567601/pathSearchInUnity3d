@@ -20,7 +20,7 @@ public class DirectionGraph {
 		bags = new Dictionary<Node, List<DirectionEdge>>();
 		name = "directionGraph";
 		mapNodes = new Dictionary<string, Node>();
-		UpdateData(tiles, nativeNodes);
+		UpdateGraph(tiles, nativeNodes);
 	}
 
 	public DirectionGraph(string name)
@@ -29,12 +29,7 @@ public class DirectionGraph {
 		this.name = name;
 	}
 
-	public DirectionEdge GetEdge(Node from, Node to)
-	{
-		return bags[from].Find(delegate(DirectionEdge edge){return edge.to == to;});
-	}
-
-	public void UpdateData(int[, ] tiles, NativeNode[, ] nativeNodes)
+	public void UpdateGraph(int[, ] tiles, NativeNode[, ] nativeNodes)
 	{
 		mapNodes.Clear();
 		bags.Clear();
@@ -79,6 +74,11 @@ public class DirectionGraph {
 				bags[node].Add(new DirectionEdge(node, bottomNode, 1));
 			}
 		}
+	}
+
+	public DirectionEdge GetEdge(Node from, Node to)
+	{
+		return bags[from].Find(delegate(DirectionEdge edge){return edge.to == to;});
 	}
 
 	public Node GetNode(int tile_x, int tile_y)

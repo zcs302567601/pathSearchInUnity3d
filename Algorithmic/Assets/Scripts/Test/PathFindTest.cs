@@ -113,7 +113,7 @@ public class PathFindTest : MonoBehaviour {
 			{
 				continue;
 			}
-			mapView.UpdateTile(node.coord_x, node.coord_y, 4);
+			mapView.UpdateTile(node.coord_x, node.coord_y, MapView.PATHNODE);
 			yield return new WaitForEndOfFrame();
 		}
 		isSearching = false;
@@ -148,6 +148,6 @@ public class PathFindTest : MonoBehaviour {
 				mapView.nativeNodes[i, j].GetComponent<NativeNode>().Reset();
 			}
 		}
-		graph.UpdateData(mapView.tiles, mapView.nativeNodes);
+		graph.UpdateGraph(mapView.tiles, mapView.nativeNodes);
 	}
 }
